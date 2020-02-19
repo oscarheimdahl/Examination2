@@ -1,45 +1,138 @@
-body {
+* {
   margin: 0;
   padding: 0;
+  font-family: 'Nanum Gothic', sans-serif;
 }
 
-/* */
+.background-start {
+  background-image: url('../resources/lines.jpg');
+
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  top: 0;
+  position: absolute;
+  display: grid;
+  justify-content: center;
+}
 
 .main-container {
+  width: 80vw;
+  max-width: 1400px;
+  display: inline-block;
+}
+
+.header {
+  padding: 40px 0;
   width: 100%;
-  height: 500px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 100px 1fr;
-  grid-template-areas:
-    'header header header header'
-    'main main . side'
-    'footer footer footer footer';
-}
-
-.grid-child {
-  transition-duration: 200ms;
-}
-
-.grid-child:hover {
-  background: white;
-}
-
-.first {
-  background: yellow;
-  grid-area: main;
-}
-
-.second {
-  background: green;
   grid-area: header;
+  display: grid;
+  justify-content: center;
+  align-items: flex-end;
+  text-align: center;
+  background: transparent;
 }
 
-.third {
-  background: blue;
-  grid-area: side;
+.header > h1 {
+  font-size: 3em;
+  color: white;
 }
 
-.fourth {
-  background: red;
-  grid-area: footer;
+.menu-row {
+  display: flex;
+}
+
+.menu-row a {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  width: 33.33%;
+  height: 100px;
+  line-height: 100px;
+  color: white;
+  background: rgba(174, 0, 255, 0.637);
+  transition-duration: 200ms;
+  user-select: none;
+  cursor: pointer;
+}
+
+#active {
+  background: rgba(0, 119, 255, 0.637);
+  text-decoration: underline;
+}
+
+.menu-option:hover {
+  background: #00000044;
+}
+
+.intro-row {
+  display: flex;
+  height: 400px;
+  background: #00000088;
+}
+
+.intro-row > img {
+  height: 100%;
+  max-height: 30vw;
+  display: inline-block;
+}
+
+.intro {
+  width: 70%;
+  padding: 20px;
+  color: white;
+  font-size: 1.3em;
+}
+
+.albums {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.album {
+  width: 48%;
+  margin: 20px 0;
+}
+
+.album img {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.album p {
+  color: white;
+}
+
+@media only screen and (max-width: 750px) {
+  .intro-row {
+    flex-direction: column;
+    justify-self: center;
+    justify-items: center;
+  }
+  .intro-row > img {
+    width: 80vw;
+    max-height: unset;
+    margin: 0 auto;
+    justify-self: center;
+    height: auto;
+  }
+
+  .intro {
+    width: 100%;
+    padding: 0;
+    padding: 20px 0;
+  }
+
+  .menu-row a {
+    height: 70px;
+    line-height: 70px;
+  }
+
+  .album {
+    margin: 30px 0;
+    width: 100%;
+  }
 }
